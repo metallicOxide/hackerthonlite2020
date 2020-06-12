@@ -44,10 +44,68 @@
     </header>
   </div>
 </template>
-<script>
-export default {
-  name: "Navbar.vue",
-};
+
+<script lang="js">
+
+function close_all_menu() {
+  const lis = document.getElementById("menu").getElementsByTagName("li");
+  Array.from(lis).forEach(function(e: any){
+      e.style.marginTop = 0;
+  });
+  var drop_menus = document.getElementsByClassName("drop_menu");
+  Array.from(drop_menus).forEach(function(e){
+      e.classList.remove("display");
+  });
+}
+
+window.addEventListener("resize", function(event) {
+    close_all_menu();
+    document.getElementsByTagName("body")[0].classList.remove("display_menu");
+});
+const last_scroll = 0;
+window.onscroll = function() {
+    if(!document.getElementById("loader")){
+        close_all_menu();
+        const header = document.getElementsByTagName("header")[0];
+        if(Math.abs(last_scroll - this.scrollY) <= 5) return;
+        (this.scrollY < last_scroll) ? header.style.top = "0" : header.style.top = "-" + header.clientHeight + "px" ;
+        last_scroll = this.scrollY;
+    }
+}
+var app = new Vue({
+  el: '#app',
+  data: {
+            load : false,
+    },
+    methods: {
+        display_menu : function(){
+            const body = document.getElementsByTagName("body")[0];
+            (!body.classList.contains("display_menu")) ? body.classList.add("display_menu") : body.classList.remove("display_menu");
+        },
+        display_drop_menu : function(){
+            const drop_menu = event.target.parentElement.getElementsByClassName("drop_menu")[0];
+            const drop_menus = document.getElementsByClassName("drop_menu");
+ 
+            Array.from(drop_menus).forEach(function(e){
+                if(e != drop_menu){
+                    e.classList.remove("display");
+                }
+            });
+            const lis = document.getElementById("menu").getElementsByTagName("li");
+            Array.from(lis).forEach(function(e){
+                e.style.marginTop = 0;
+            });
+            (!drop_menu.classList.contains("display")) ? drop_menu.classList.add("display") : drop_menu.classList.remove("display");
+            if (window.innerWidth < 660 && drop_menu.classList.contains("display")) {
+                event.target.parentElement.nextSibling.nextSibling.style.marginTop = drop_menu.clientHeight + "px";
+            }
+        },
+        loaded : function(){
+            document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+            (this.load) ? this.load = false : this.load = true;
+        }
+    }
+});
 </script>
 
 <style lang="css" scoped>
