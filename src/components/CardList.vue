@@ -1,11 +1,13 @@
 <template>
   <div id="cardList">
-    <div class="title">Active Prescriptions</div>
-    <b-container class="coloured-container">
+    <div class="title-container">
+        <div class="title">Active Prescriptions</div>
+    </div>
+    <div class="coloured-container">
         <div v-for="(drug, index) in drugs" v-bind:key="`drug-${index}`">
             <Card v-bind:drug="drug"/>
         </div>
-    </b-container>
+    </div>
   </div>
 </template>
 
@@ -46,13 +48,16 @@
 
     #cardList {
         .title {
-            
+            text-align: left;
+        }
+
+        .title-container {
+            margin-bottom: 15px;
         }
 
         .coloured-container {
             background-color: $background-default;
-            padding-bottom: 20px;
-            padding-top: 20px;
+            padding: 20px;
         }
     }
 

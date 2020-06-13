@@ -7,7 +7,7 @@
           <CardList />
         </b-col>
         <b-col>
-
+          <MyDoc />
         </b-col>
       </b-row>
     </b-container>
@@ -17,10 +17,12 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import CardList from '../components/CardList.vue';
+  import MyDoc from '../components/myDoctor.vue';
 
   @Component({
     components: {
-      CardList
+      CardList,
+      MyDoc
     }
   })
   export default class Home extends Vue {
@@ -36,5 +38,6 @@
     color: $background-default;
     padding-top: 20px;
     font-weight: 500;
+    padding-bottom: 20px;
   }
 </style>
