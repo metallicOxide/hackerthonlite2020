@@ -3,23 +3,25 @@
     <div id="nav">
       <Navbar />
     </div>
+    <div id="footer">
+      <Footer />
+    </div>
     <router-view />
   </div>
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
-  import Navbar from './components/Navbar.vue';
+import { Component, Vue } from "vue-property-decorator";
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 
-  @Component({
-    components: {
-      Navbar
-    },
-  })
-  export default class App extends Vue {
-
-    
+@Component({
+  components: {
+    Navbar,
+    Footer
   }
+})
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">
@@ -39,5 +41,13 @@
       color: #42b983;
     }
   }
+}
+
+#footer {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2013213;
+  position: absolute;
 }
 </style>
