@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
+import Info from "../components/activePres.vue";
 
 Vue.use(VueRouter);
 
@@ -8,7 +9,13 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    
+  },
+  {
+    path: "/info",
+    name: "info",
+    component: Info
   },
   {
     path: "/about",
@@ -22,6 +29,7 @@ const routes: Array<RouteConfig> = [
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 });
 
