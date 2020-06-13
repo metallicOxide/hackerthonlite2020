@@ -3,10 +3,10 @@
     <div id="nav">
       <Navbar />
     </div>
+    <router-view />
     <div id="footer">
       <Footer />
     </div>
-    <router-view />
   </div>
 </template>
 
@@ -46,8 +46,8 @@ export default class App extends Vue {}
 #footer {
   left: 0;
   right: 0;
-  bottom: 0;
-  z-index: 2013213;
+  z-index: -1;
+  margin-top: 50px;
   position: absolute;
 }
 </style>
