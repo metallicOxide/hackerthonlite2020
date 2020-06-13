@@ -20,10 +20,10 @@
 </script>
 
 <style lang="scss" scoped>
-  $background-default: rgb(150,237,222);
+  $greybackground: rgb(200, 200, 200);
+
   .card {
-    background-color: $background-default !important;
-    border: 4px solid #fff;
+    background-color: $greybackground !important;
     border-radius: 20px;
   }
 

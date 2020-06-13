@@ -1,7 +1,7 @@
 <template>
   <div id="cardList">
     <div class="title-container">
-        <div class="title">Active Prescriptions</div>
+        <div class="title">Past Prescriptions</div>
     </div>
     <div class="coloured-container">
         <div v-for="(drug, index) in drugs" v-bind:key="`drug-${index}`">
@@ -14,7 +14,7 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import Drug from '../model/drugs';
-  import Card from './Card.vue';
+  import Card from './expiredCard.vue';
 
   @Component({
       components: {
@@ -25,13 +25,13 @@
     drugs: Array<Drug> = [
         {
             name: "Vicodin",
-            datePrescribed: "05/06/2020",
-            dosage: "100mg"
+            datePrescribed: "01/05/2020",
+            dosage: "300mg"
         },
         {
             name: "Codeine",
-            datePrescribed: "03/06/2020",
-            dosage: "200mg"
+            datePrescribed: "04/04/2020",
+            dosage: "100mg"
         },
         {
             name: "Lyrica ",
@@ -44,7 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
-    $background-default: rgb(150,237,222);
+    $dark-blue: #0373fc;
 
     #cardList {
         .title {
@@ -56,8 +56,10 @@
         }
 
         .coloured-container {
-            background-color: $background-default;
             padding: 20px;
+            border: 2px solid $dark-blue;
+            height: 240px;
+            overflow: scroll;
         }
     }
 

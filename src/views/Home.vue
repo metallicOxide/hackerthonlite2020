@@ -7,7 +7,10 @@
           <CardList />
         </b-col>
         <b-col>
-          <MyDoc />
+          <div class="doc-padding">
+            <MyDoc />
+          </div>
+          <History />
         </b-col>
       </b-row>
     </b-container>
@@ -18,11 +21,13 @@
   import { Component, Vue } from 'vue-property-decorator';
   import CardList from '../components/CardList.vue';
   import MyDoc from '../components/myDoctor.vue';
+  import History from '../components/perscriptionHistory.vue';
 
   @Component({
     components: {
       CardList,
-      MyDoc
+      MyDoc,
+      History
     }
   })
   export default class Home extends Vue {
@@ -39,5 +44,9 @@
     padding-top: 20px;
     font-weight: 500;
     padding-bottom: 20px;
+  }
+
+  .doc-padding {
+    margin-bottom: 10px;
   }
 </style>

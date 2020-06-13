@@ -47,7 +47,7 @@ export default class App extends Vue {}
   left: 0;
   right: 0;
   z-index: -1;
-  margin-top: 50px;
+  margin-top: 30px;
   position: absolute;
 }
 </style>
