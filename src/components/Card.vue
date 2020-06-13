@@ -1,107 +1,24 @@
 <template>
-  <div>
-    <h1>Key Features</h1>
-    <div class="card-expansion">
-      <md-card>
-        <md-card-media>
-          <img src="/assets/examples/card-image-1.jpg" alt="People" />
-        </md-card-media>
-
-        <md-card-header>
-          <div class="md-title">Safe</div>
-          <div class="md-subhead">Subtitle here</div>
-        </md-card-header>
-
-        <md-card-expand>
-          <md-card-actions md-alignment="space-between">
-            <md-card-expand-trigger>
-              <md-button>Learn more</md-button>
-            </md-card-expand-trigger>
-          </md-card-actions>
-
-          <md-card-expand-content>
-            <md-card-content>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
-              itaque ea, nostrum odio. Dolores, sed accusantium quasi non,
-              voluptas eius illo quas, saepe voluptate pariatur in deleniti
-              minus sint. Excepturi.
-            </md-card-content>
-          </md-card-expand-content>
-        </md-card-expand>
-      </md-card>
-      <md-card>
-        <md-card-media>
-          <img src="/assets/examples/card-image-1.jpg" alt="People" />
-        </md-card-media>
-
-        <md-card-header>
-          <div class="md-title">Convenient</div>
-          <div class="md-subhead">Subtitle here</div>
-        </md-card-header>
-
-        <md-card-expand>
-          <md-card-actions md-alignment="space-between">
-            <md-card-expand-trigger>
-              <md-button>Learn more</md-button>
-            </md-card-expand-trigger>
-          </md-card-actions>
-
-          <md-card-expand-content>
-            <md-card-content>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
-              itaque ea, nostrum odio. Dolores, sed accusantium quasi non,
-              voluptas eius illo quas, saepe voluptate pariatur in deleniti
-              minus sint. Excepturi.
-            </md-card-content>
-          </md-card-expand-content>
-        </md-card-expand>
-      </md-card>
-      <md-card>
-        <md-card-media>
-          <img src="/assets/examples/card-image-1.jpg" alt="People" />
-        </md-card-media>
-
-        <md-card-header>
-          <div class="md-title">Secure</div>
-          <div class="md-subhead">Subtitle here</div>
-        </md-card-header>
-
-        <md-card-expand>
-          <md-card-actions md-alignment="space-between">
-            <md-card-expand-trigger>
-              <md-button>Learn more</md-button>
-            </md-card-expand-trigger>
-          </md-card-actions>
-
-          <md-card-expand-content>
-            <md-card-content>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
-              itaque ea, nostrum odio. Dolores, sed accusantium quasi non,
-              voluptas eius illo quas, saepe voluptate pariatur in deleniti
-              minus sint. Excepturi.
-            </md-card-content>
-          </md-card-expand-content>
-        </md-card-expand>
-      </md-card>
-    </div>
+  <div class="card">
+    <b-card :title="drug.name" :sub-title="drug.dosage">
+      <b-card-text>
+        {{dateString}}
+      </b-card-text>
+    </b-card>
   </div>
 </template>
 
-<script>
-export default {
-  name: "CardExpansion",
-};
+<script lang="ts">
+  import { Component, Vue, Prop } from 'vue-property-decorator';
+  import Drug from '../model/drugs';
+
+  @Component
+  export default class Card extends Vue {
+    @Prop () private drug!: Drug;
+    dateString = "Date prescribed: " + this.drug.datePrescribed
+  }
 </script>
 
 <style lang="scss" scoped>
-.card-expansion {
-  height: 480px;
-}
 
-.md-card {
-  width: 320px;
-  margin: 4px;
-  display: inline-block;
-  vertical-align: top;
-}
 </style>
